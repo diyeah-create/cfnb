@@ -190,11 +190,9 @@
 ## ⚙️ 配置说明（完整参数详解）
 
 > [!NOTE]
-> **运行环境说明**  
-> 本工具默认参数基于 **2核2G 云服务器** 环境稳定测试通过。  
-> 若您在 **软路由（如 OpenWrt）、树莓派或低配置 PC** 上运行，建议适当降低并发参数（如 `MAX_WORKERS`、`BANDWIDTH_WORKERS`）。
+> 默认参数基于 **2核2G 云服务器** 测试通过。若在 **软路由、树莓派或低配 PC** 上运行，建议降低 `MAX_WORKERS`、`BANDWIDTH_WORKERS`。
 
-所有运行参数均集中在 `config.json` 文件中。以下为 **每一个配置项** 的详细说明。
+所有参数均位于 `config.json`，以下为逐项说明。
 
 ### 筛选模式与数量控制
 
@@ -212,13 +210,6 @@
 | `TCP_PROBES` | `int` | `7` | 每个节点测试 TCP 连接的次数。增加次数可提高延迟数据的准确性，但会增加总测试时间。 |
 | `MIN_SUCCESS_RATE` | `float` | `1.0` | **最低成功率阈值**（0.0 ~ 1.0）。节点在 `TCP_PROBES` 次测试中的成功比例必须 ≥ 此值才能进入下一轮。`1.0` 表示要求全部连接成功。若网络波动大，可适当降低（如 `0.7`）。 |
 | `TIMEOUT` | `float` | `2.5` | 单次 TCP 连接超时时间（秒）。超时未连上的即判定失败。网络延迟较高时可酌情增加。 |
-
-### 节点数据源与输出
-
-| 参数 | 类型 | 默认值 | 说明 |
-| :--- | :--- | :--- | :--- |
-| `JSON_URL` | `string` | `"https://zip.cm.edu.kg/all.txt"` | Cloudflare IP 节点数据源 URL（TXT 格式，每行 `IP:端口#国家`）。可替换为其他兼容源。 |
-| `OUTPUT_FILE` | `string` | `"ip.txt"` | 最终优选节点保存的文件名。程序运行后会覆盖写入该文件。 |
 
 ### 国家过滤参数（前置优化）
 
@@ -249,8 +240,15 @@
 | `CF_TTL` | `int` | `60` | DNS 记录的 TTL（秒）。<br>可设置为 `1` 表示“自动”（实际为 300 秒）；其他常见值为 `60`、`120`、`300` 等。<br>**注意**：仅当 `CF_PROXIED = false`（仅 DNS 模式）时自定义 TTL 才生效；若开启代理，TTL 将被强制设为自动。 |
 | `CF_PROXIED` | `boolean` | `false` | 是否启用 Cloudflare CDN 代理（橙色云朵）。通常设为 `false`（仅 DNS 解析）。 |
 
+### 节点数据源与输出
+
+| 参数 | 类型 | 默认值 | 说明 |
+| :--- | :--- | :--- | :--- |
+| `JSON_URL` | `string` | `"https://zip.cm.edu.kg/all.txt"` | Cloudflare IP 节点数据源 URL（TXT 格式，每行 `IP:端口#国家`）。可替换为其他兼容源。 |
+| `OUTPUT_FILE` | `string` | `"ip.txt"` | 最终优选节点保存的文件名。程序运行后会覆盖写入该文件。 |
+
 <details>
-<summary>🔧 点击展开高级参数（可用性检测 / 带宽测速 / 纯净度 / 并发 / 重试）</summary>
+<summary>🔧 高级参数（可用性 / 带宽 / 纯净度 / 并发 / 重试）</summary>
 
 ### 可用性检测参数
 
@@ -304,10 +302,11 @@
 
 </details>
 
-> 💡 **配置建议**：  
-> - 大多数用户仅需修改 `ALLOWED_COUNTRIES`、`WXPUSHER_APP_TOKEN` 和 `WXPUSHER_UIDS`。  
-> - 启用 DNS 更新请正确填写 `CF_*` 参数。  
-> - 网络不稳定时可增加 `TCP_PROBES` 和 `TIMEOUT`，降低 `MIN_SUCCESS_RATE` 和 `MAX_WORKERS`。
+> 💡 **快速配置建议**  
+> - 通常只需修改 `ALLOWED_COUNTRIES`、`WXPUSHER_APP_TOKEN`、`WXPUSHER_UIDS`。  
+> - 启用 DNS 更新需正确填写 `CF_API_TOKEN`、`CF_ZONE_ID`、`CF_DNS_RECORD_NAME`。  
+> - 网络不稳定时可 ↑ `TCP_PROBES` / `TIMEOUT`，↓ `MIN_SUCCESS_RATE` / `MAX_WORKERS`。  
+> - 希望更快出结果可 ↓ `BANDWIDTH_CANDIDATES` 或 `BANDWIDTH_SIZE_MB`。
 
 ---
 
