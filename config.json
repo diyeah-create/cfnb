@@ -13,16 +13,16 @@
     "BANDWIDTH_CANDIDATES": 90,
     "_comment_BANDWIDTH_CANDIDATES": "进入带宽测速的候选节点数（从TCP通过者中选取前N个）",
 
-    "TCP_PROBES": 5,
+    "TCP_PROBES": 3,
     "_comment_TCP_PROBES": "每个节点测试 TCP 连接的次数",
 
     "MIN_SUCCESS_RATE": 1.0,
     "_comment_MIN_SUCCESS_RATE": "TCP 最低成功率阈值（0.0~1.0），低于此值的节点直接淘汰",
 
-    "TIMEOUT": 2.5,
+    "TIMEOUT": 2.0,
     "_comment_TIMEOUT": "单次 TCP 连接超时时间（秒）",
 
-    "SOCKET_DEFAULT_TIMEOUT": 5,
+    "SOCKET_DEFAULT_TIMEOUT": 3,
     "_comment_SOCKET_DEFAULT_TIMEOUT": "全局 Socket 默认超时（秒），防止永久阻塞",
 
     "PROGRESS_PRINT_INTERVAL": 1,
@@ -46,10 +46,10 @@
     "WXPUSHER_API_URL": "http://wxpusher.zjiecode.com/api/send/message",
     "_comment_WXPUSHER_API_URL": "WxPusher 消息发送 API 地址（一般无需修改）",
 
-    "NOTIFY_TIMEOUT": 5,
+    "NOTIFY_TIMEOUT": 3,
     "_comment_NOTIFY_TIMEOUT": "微信通知 API 读取超时（秒）",
 
-    "NOTIFY_CONNECT_TIMEOUT": 5,
+    "NOTIFY_CONNECT_TIMEOUT": 3,
     "_comment_NOTIFY_CONNECT_TIMEOUT": "微信通知 API 连接超时（秒）",
 
     "_comment_cf_dns": "Cloudflare DNS 批量更新配置",
@@ -59,9 +59,9 @@
     "CF_DNS_RECORD_NAME": "your_CF_DNS_RECORD_NAME",
     "CF_TTL": 60,
     "CF_PROXIED": false,
-    "CF_DNS_CONNECT_TIMEOUT": 5,
+    "CF_DNS_CONNECT_TIMEOUT": 3,
     "_comment_CF_DNS_CONNECT_TIMEOUT": "Cloudflare API 连接超时（秒）",
-    "CF_DNS_READ_TIMEOUT": 10,
+    "CF_DNS_READ_TIMEOUT": 3,
     "_comment_CF_DNS_READ_TIMEOUT": "Cloudflare API 读取超时（秒）",
 
     "JSON_URL": "https://zip.cm.edu.kg/all.txt",
@@ -70,13 +70,13 @@
     "FETCH_MAX_RETRIES": 3,
     "_comment_FETCH_MAX_RETRIES": "获取节点列表失败时的最大重试次数",
 
-    "FETCH_RETRY_DELAY": 5,
+    "FETCH_RETRY_DELAY": 3,
     "_comment_FETCH_RETRY_DELAY": "获取节点列表重试间隔（秒）",
 
-    "FETCH_TIMEOUT": 5,
+    "FETCH_TIMEOUT": 3,
     "_comment_FETCH_TIMEOUT": "获取节点列表读取超时（秒）",
 
-    "FETCH_CONNECT_TIMEOUT": 5,
+    "FETCH_CONNECT_TIMEOUT": 3,
     "_comment_FETCH_CONNECT_TIMEOUT": "获取节点列表连接超时（秒）",
 
     "OUTPUT_FILE": "ip.txt",
@@ -88,16 +88,16 @@
     "AVAILABILITY_CHECK_API": "https://api.check.proxyip.cmliussss.net/check",
     "_comment_AVAILABILITY_CHECK_API": "IP 可用性检测 API 地址",
 
-    "AVAILABILITY_TIMEOUT": 5,
+    "AVAILABILITY_TIMEOUT": 3,
     "_comment_AVAILABILITY_TIMEOUT": "可用性 API 读取超时（秒）",
 
-    "AVAILABILITY_CONNECT_TIMEOUT": 5,
+    "AVAILABILITY_CONNECT_TIMEOUT": 3,
     "_comment_AVAILABILITY_CONNECT_TIMEOUT": "可用性 API 连接超时（秒）",
 
     "AVAILABILITY_RETRY_MAX": 2,
     "_comment_AVAILABILITY_RETRY_MAX": "可用性检测整体失败（通过率为0）时的最大重试轮数",
 
-    "AVAILABILITY_RETRY_DELAY": 5,
+    "AVAILABILITY_RETRY_DELAY": 3,
     "_comment_AVAILABILITY_RETRY_DELAY": "可用性检测重试间隔（秒）",
 
     "FILTER_IPV6_AVAILABILITY": true,
@@ -113,16 +113,16 @@
     ],
     "_comment_BLOCKED_COUNTRIES": "【仅DNS】需要屏蔽的国家代码列表",
 
-    "BANDWIDTH_SIZE_MB": 1,
+    "BANDWIDTH_SIZE_MB": 0.5,
     "_comment_BANDWIDTH_SIZE_MB": "带宽测速下载文件大小（MB）",
 
-    "BANDWIDTH_TIMEOUT": 5,
+    "BANDWIDTH_TIMEOUT": 3,
     "_comment_BANDWIDTH_TIMEOUT": "单个节点带宽测速超时（秒）",
 
     "BANDWIDTH_RETRY_MAX": 2,
     "_comment_BANDWIDTH_RETRY_MAX": "带宽测速整体失败（结果为空）时的最大重试轮数（例如设为2，则总共最多执行2轮）",
 
-    "BANDWIDTH_RETRY_DELAY": 5,
+    "BANDWIDTH_RETRY_DELAY": 3,
     "_comment_BANDWIDTH_RETRY_DELAY": "带宽测速重试间隔（秒）",
 
     "BANDWIDTH_URL_TEMPLATE": "https://speed.cloudflare.com/__down?bytes={bytes}",
@@ -131,7 +131,7 @@
     "BANDWIDTH_PROCESS_BUFFER": 2,
     "_comment_BANDWIDTH_PROCESS_BUFFER": "带宽测速 curl 进程额外缓冲时间（秒）",
 
-    "BANDWIDTH_CONNECT_TIMEOUT": 5,
+    "BANDWIDTH_CONNECT_TIMEOUT": 3,
     "_comment_BANDWIDTH_CONNECT_TIMEOUT": "curl 测速连接超时（秒）",
 
     "MAX_WORKERS": 150,
@@ -145,9 +145,9 @@
 
     "_comment_retry": "重试策略配置",
     "DNS_UPDATE_MAX_RETRIES": 3,
-    "DNS_UPDATE_RETRY_DELAY": 5,
+    "DNS_UPDATE_RETRY_DELAY": 3,
     "GITHUB_SYNC_MAX_RETRIES": 3,
-    "GITHUB_SYNC_RETRY_DELAY": 5,
+    "GITHUB_SYNC_RETRY_DELAY": 3,
     "GIT_SYNC_PROCESS_TIMEOUT": 180,
     "_comment_GIT_SYNC_PROCESS_TIMEOUT": "Git 同步子进程最大运行时间（秒）"
 }
