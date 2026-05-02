@@ -380,7 +380,7 @@ python3 main.py
 | `GITHUB_SYNC_RETRY_DELAY` | `int` | `3` | GitHub 推送重试间隔（秒） |
 | `GIT_SYNC_PROCESS_TIMEOUT` | `int` | `180` | Git 同步子进程最大运行时间（秒） |
 
-#### 广告植入参数（仅影响 `ip.txt` 内容）
+#### 广告植入参数
 
 | 参数 | 类型 | 默认值 | 说明 |
 | :--- | :--- | :--- | :--- |
